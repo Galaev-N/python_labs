@@ -1,6 +1,6 @@
 # Задание 7
 
-chifre = input()
+chifre = input('in: ')
 word = ''
 first_letter_index = 0
 second_letter_index = 0
@@ -17,4 +17,4 @@ for j in chifre:
         break
 for k in range(first_letter_index, len(chifre), second_letter_index - first_letter_index):
     answer += chifre[k]
-print(answer)
+print(f'out: {answer}')

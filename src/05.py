@@ -1,3 +1,5 @@
+# Задание 5
+
 fio = input('ФИО: ')
 
 inits = fio.split()
