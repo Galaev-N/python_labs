@@ -3,4 +3,4 @@
 m = int(input('Минуты: '))
 hours = m // 60
 ost = m - hours*60
-print(f'{hours}:{ost}')
+print(f'{hours}:{ost:02d}')
