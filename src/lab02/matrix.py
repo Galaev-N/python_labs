@@ -1,4 +1,5 @@
 # Задание B
+
 def transpose(lst):
     m = 0 # счетчик кол-ва столбцов
     ans = []
@@ -10,7 +11,7 @@ def transpose(lst):
             a.append(k[j])
         ans.append(a)
     return ans
-#print(transpose([[1, 2, 5], [3, 4]]))
+#print(transpose([[1, 2], [3, 4]]))
 
 def row_sums(lst):
     ans = []
