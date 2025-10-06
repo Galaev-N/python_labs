@@ -17,8 +17,3 @@ def format_record(tuuple):
 
     return fio_str + group_str + GPA_str
 #print(format_record(("Петров Пётр Петрович", "IKBO-12", 5.0)))
-
-
-a = [1, 2, 3, 4]
-for i in a:
-    print(i)
