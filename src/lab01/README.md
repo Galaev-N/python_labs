@@ -1,7 +1,7 @@
 # python_lab01
 <h1>Задание 1<h1>
 
-![all text](images/lab01/image-1.png)
+![alt text](../../images/lab01/image-1.png)
 
 <h1>Задание 2<h1>
 
