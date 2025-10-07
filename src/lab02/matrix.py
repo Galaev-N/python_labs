@@ -1,28 +1,40 @@
 # Задание B
 
 def transpose(lst):
-    m = 0 # счетчик кол-ва столбцов
+    if lst == []:
+        return []
+    count_table = len(lst[0])
+    for k in lst:
+        if len(k) != count_table:
+            return 'ValueError'
     ans = []
-    for i in lst:
-        m = max(m, len(i))
+    m = len(lst[0])
     for j in range(m):
         a =[]
         for k in lst:
             a.append(k[j])
         ans.append(a)
     return ans
-#print(transpose([[1, 2], [3, 4]]))
+#print(transpose([]))
 
 def row_sums(lst):
     ans = []
+    count_table = len(lst[0])
+    for k in lst:
+        if len(k) != count_table:
+            return 'ValueError'
     m = len(lst)
     for j in range(m):
         ans.append(sum(lst[j]))
     return ans
-#print(row_sums([[1, 2, 3], [4, 5, 6]]))
+#print(row_sums([[1, 2], [3]]))
 
 def col_sums(lst):
     ans = []
+    count_table = len(lst[0])
+    for k in lst:
+        if len(k) != count_table:
+            return 'ValueError'
     new_lst = transpose(lst)
     return(row_sums(new_lst))
-#print(col_sums([[-1, 1], [10, -10]]))
+#print(col_sums([[1, 2], [3]]))

@@ -1,8 +1,11 @@
 # Задание A
 
 def min_max(lst):
-    return min(lst), max(lst)
-#print(min_max([1.5,2, 2.0, -3.1]))
+    if lst == []:
+        return 'ValueError'
+    else:
+        return min(lst), max(lst)
+print(min_max([1.5,2, 2.0, -3.1]))
 
 def unique_sorted(lst):
     lst = set(lst)
@@ -12,7 +15,10 @@ def unique_sorted(lst):
 def flatten(lst):
     ans = []
     for i in lst:
-        for j in i:
-            ans.append(j)
+        if type(i) != list:
+            return 'TypeError'
+        else:
+            for j in i:
+                ans.append(j)
     return ans
 #print(flatten([[1, 2], (3, 4, 5)]))

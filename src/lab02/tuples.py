@@ -1,6 +1,15 @@
 # Задание С
 
 def format_record(tuuple):
+    if len(tuuple) != 3:
+        return 'ValueError'
+        
+    if tuuple[0] == '' or tuuple[1] == '':
+        return 'ValueError'
+        
+    if type(tuuple[0]) != str or type(tuuple[1]) != str or type(tuuple[2]) != float:
+        return 'TypeError'
+
     # Реализуем обработку фамилии
     fio = tuuple[0].split()
     m = len(fio) - 1
@@ -16,4 +25,4 @@ def format_record(tuuple):
     GPA_str = f' GPA {tuuple[2]:.2f}'
 
     return fio_str + group_str + GPA_str
-#print(format_record(("  сидорова  анна   сергеевна ", "ABB-01", 3.999)))
+#print(format_record(("", "BIVT-25-5", 3.0)))
