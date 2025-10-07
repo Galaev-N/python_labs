@@ -25,4 +25,4 @@ def format_record(tuuple):
     GPA_str = f' GPA {tuuple[2]:.2f}'
 
     return fio_str + group_str + GPA_str
-#print(format_record(("", "BIVT-25-5", 3.0)))
+print(format_record(("Иванов Иван Иванович", "BIVT-25", 4.6)))
