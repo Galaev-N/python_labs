@@ -24,10 +24,10 @@ def row_sums(lst):
         if len(k) != count_table:
             return 'ValueError'
     m = len(lst)
-    for j in range(m):
-        ans.append(sum(lst[j]))
+    for j in lst:
+        ans.append(sum(j))
     return ans
-#print(row_sums([[1, 2, 3], [4, 5, 6]]))
+print(row_sums([[1, 2, 3], [4, 5, 6]]))
 
 def col_sums(lst):
     ans = []
@@ -37,4 +37,4 @@ def col_sums(lst):
             return 'ValueError'
     new_lst = transpose(lst)
     return(row_sums(new_lst))
-print(col_sums([[1, 2, 3], [4, 5, 6]]))
+#print(col_sums([[1, 2, 3], [4, 5, 6]]))
