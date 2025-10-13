@@ -1,6 +1,8 @@
 # Задание С
 
 def format_record(tuuple):
+    if type(tuuple) != tuple:
+        return 'TypeError'
     if len(tuuple) != 3:
         return 'ValueError'
         
