@@ -21,14 +21,16 @@ def normalize(text, casefold, yo2e):
 #print(normalize('  по-настоящему, -3 круто  ', True, True))
 
 def tokenize(text):
-    base = text.split()
+    base = text.replace('.', ' ').replace(',', ' ').replace('!', ' ').replace(':', ' ').replace(';', ' ').replace('?', '')
+    base = base.split()
     ans = []
+
     for i in base:
         if i[0].isdigit() == 0 and i[0].isalpha() == 0: pass
         else:
             ans.append(i)
     return ans
-print(tokenize('hello,world!!!'))
+#print(tokenize('hello - world!!!'))
 
 def count_freq(lst):
     ans_items = []
@@ -59,5 +61,4 @@ def top_n(dict, n):
     '''
     return ans[:n]
 
-
-#print(top_n({'a': 1, 'b': 2, 'c': 2}, 2))
+#print(top_n(count_freq(["a","b","c","c","b","c"]), 3))

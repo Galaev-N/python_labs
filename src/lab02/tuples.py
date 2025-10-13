@@ -16,7 +16,7 @@ def format_record(tuuple):
     fio = tuuple[0].split()
     m = len(fio) - 1
     fio_str = f'{fio[0][0].upper()}{fio[0][1:]} '
-    for i in range(1, m+1):
+    for i in range(     1, m+1):
         fio_str += f'{fio[i][0].upper()}.'
     fio_str += ','
 
