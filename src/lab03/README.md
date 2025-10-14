@@ -95,3 +95,4 @@ print('Top-5:')
 for i in top_n(count_freq(tokenize(fl)), 5):
     print(f'{i[0]}:{i[1]}')
 ```
+![alt text](../../images/lab03/txt_stats.png)
