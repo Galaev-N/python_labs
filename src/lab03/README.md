@@ -76,7 +76,7 @@ print(top_n(count_freq(["a","b","c","c","b","c"]), 3))
 
 ## Работа с отдельным текстовым файлом
 
-> текст находиться в файле [text](src/lab03/text), функции лежат в файле [A](src/lab03/A.py)
+> текст находиться в файле [text](../../lab03/text), функции лежат в файле [A](../../lab03/A.py)
 
 ```python
 from A import normalize, tokenize, count_freq, top_n
