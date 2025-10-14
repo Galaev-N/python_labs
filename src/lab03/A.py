@@ -9,7 +9,6 @@ def normalize(text, casefold, yo2e):
     text = text.replace('\n', ' ')
     text = text.replace('\t', ' ')
     text = text.replace('\r', ' ')
-    text = text.replace('\w', ' ')
 
     text_lst = text.split()
 
