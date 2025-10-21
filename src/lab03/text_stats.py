@@ -1,4 +1,4 @@
-from A import normalize, tokenize, count_freq, top_n
+from lab03.A import normalize, tokenize, count_freq, top_n
 fl = open('/Users/galaevka/python_labs/python_labs/src/lab03/text', encoding='utf-8').readline()
 fl = normalize(fl, True, True)
 

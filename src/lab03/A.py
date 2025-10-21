@@ -1,4 +1,4 @@
-def normalize(text, casefold, yo2e):
+def normalize(text, casefold, yo2e): 
     if yo2e:
         text = text.replace('ё', 'е')
         text = text.replace('Ё', 'Е')
