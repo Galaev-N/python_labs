@@ -6,6 +6,7 @@ sys.path.append(r'/Users/galaevka/python_labs/python_labs/src/lab04')
 from io_txt_csv import *
 
 def json_to_csv(json_path, csv_path):
+
     if json_path[-4:] != 'json' :
          return f'TypeError! Неверный формат файла {json_path}'
     
@@ -14,7 +15,7 @@ def json_to_csv(json_path, csv_path):
 
     try:
         with open(json_path, 'r', encoding='utf-8') as json_file:
-            data = json.load(json_file) # [{"name": "Alice", "age": 22}, {"name": "Bob", "age": 25}]
+            data = json.load(json_file)
         
     except json.decoder.JSONDecodeError:
         raise ValueError("Пустой JSON или неподдерживаемая структура")
@@ -56,7 +57,7 @@ def csv_to_json(csv_path, json_path):
         return ValueError("CSV без заголовка")
     
     with open(json_path,'w', encoding="utf-8" ) as json_file:
-        json.dump(rows, json_file, indent=1000)
+        json.dump(rows, json_file, indent=2)
     return 'Файл успешно создан'
 
-print(csv_to_json('/Users/galaevka/python_labs-3/src/lab05/B.csv', '/Users/galaevka/python_labs-3/src/lab05/B.json'))
+print(csv_to_json('/Users/galaevka/python_labs-3/data/lab05/input/second.csv', '/Users/galaevka/python_labs-3/data/lab05/output/second.json'))
