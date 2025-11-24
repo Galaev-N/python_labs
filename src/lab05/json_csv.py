@@ -33,7 +33,7 @@ def json_to_csv(json_path, csv_path):
 
     write_csv(rows, csv_path, header)
     return 'Файл успешно создан'
-#print(json_to_csv('/Users/galaevka/python_labs-3/src/lab05/A.json', '/Users/galaevka/python_labs-3/src/lab05/A.csv'))
+print(json_to_csv('data/lab05/input/first.json', 'data/lab05/output/first.csv'))
 
 
 def csv_to_json(csv_path, json_path):
@@ -60,4 +60,4 @@ def csv_to_json(csv_path, json_path):
         json.dump(rows, json_file, indent=2)
     return 'Файл успешно создан'
 
-print(csv_to_json('/Users/galaevka/python_labs-3/data/lab05/input/second.csv', '/Users/galaevka/python_labs-3/data/lab05/output/second.json'))
+#print(csv_to_json('/Users/galaevka/python_labs-3/data/lab05/input/second.csv', '/Users/galaevka/python_labs-3/data/lab05/output/second.json'))
