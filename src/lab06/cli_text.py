@@ -40,7 +40,7 @@ def main():
     # подкоманда cat
     cat_parser = subparsers.add_parser("cat", help="Вывести содержимое файла") # Пользуемся не стандартным --in, поэтому до этого сделали subpars cat
     cat_parser.add_argument("--input", required=True)
-    cat_parser.add_argument("-n", dest='count', action="store_true", help="Нумеровать строки") # action - если дан аргумент -n, значит нумерация строк бует, иначе False
+    cat_parser.add_argument("-n", dest='count', action="store_true", help="Нумеровать строки") # action - если дан аргумент -n, значит нумерация строк будет, иначе False
 
     # подкоманда stats
     stats_parser = subparsers.add_parser("stats", help="Частоты слов")
