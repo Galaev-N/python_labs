@@ -14,7 +14,7 @@ def csv_to_xlsx(csv_path, xlsx_path):
             data = list(csv.reader(csv_file))
 
     except FileNotFoundError:
-        raise FileNotFoundError("Осутствующий файл")
+        return f'Ошибка! Файл {csv_path}'
     
     if not data:
         return 'ValueError! Пустой CSV'

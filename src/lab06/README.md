@@ -27,6 +27,8 @@ def cat(file_path, count=False):
         return f'Ошибка. файл {file_path} не найден!'
 ```
 
+![alt text](<../../images/lab06/Снимок экрана 2025-11-25 в 13.14.43.png>)
+
 ## Функция stats (анализ частот слов в тексте)
 ```python
 def stats(file_path, top=5):
@@ -41,6 +43,8 @@ def stats(file_path, top=5):
     except FileNotFoundError:
         return f'Ошибка. файл {file_path} не найден!'
 ```
+
+![alt text](<../../images/lab06/Снимок экрана 2025-11-25 в 13.09.00.png>)
 
 ## Функция main ?инициализация? функции
 ```python
@@ -79,7 +83,7 @@ sys.path.append(r'/Users/galaevka/python_labs-3/src/lab05')
 from json_csv import json_to_csv, csv_to_json
 from csv_xlsx import csv_to_xlsx
 ```
-<p>Функции полностью взяты из lab05, их содержимое можноипосмотреть в README соответственнно 5 лабы</p>
+<p>Функции полностью взяты из lab05, их содержимое можно посмотреть в README соответственнно 5 лабы</p>
 
 ## Функция main и ?инициализация? функции
 ```python
@@ -113,3 +117,5 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+![alt text](<../../images/lab06/Снимок экрана 2025-11-25 в 13.40.56.png>)

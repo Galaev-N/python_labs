@@ -6,8 +6,8 @@ from io_txt_csv import *
 sys.path.append(r'/Users/galaevka/python_labs-3/src/lab03')
 from A import *
 
-# python3 /Users/galaevka/python_labs-3/src/lab06/cli_text.py stats --input /Users/galaevka/python_labs-3/src/lab06/txt --top 5
-# python3 /Users/galaevka/python_labs-3/src/lab06/cli_text.py cat --input /Users/galaevka/python_labs-3/src/lab06/txt -n
+# python3 /Users/galaevka/python_labs-3/src/lab06/cli_text.py stats --input /Users/galaevka/python_labs-3/data/lab06/in/txt --top 5
+# python3 /Users/galaevka/python_labs-3/src/lab06/cli_text.py cat --input /Users/galaevka/python_labs-3/data/lab06/in/txt -n
 def cat(file_path, count=False):
     number = 1
     try:
@@ -25,9 +25,6 @@ def stats(file_path, top=5):
     file_path = Path(file_path)
     try:
         txt = read_text(file_path)
-        print(f'Всего слов: {len(tokenize(txt))}')
-        print(f'Уникальных слов: {len(set(tokenize(txt)))}')
-        print('Top-5:')
         for i in top_n(count_freq(tokenize(txt)), top):
             print(f'{i[0]}:{i[1]}')
     except FileNotFoundError:
