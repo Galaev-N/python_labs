@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "de_BRUH"
+version = "2025.0.0"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "black>=24.0",
+  "ruff>=0.6"
+]
+
+dependencies = [
+  "requests>=2.32",
+  "pandas>=2.2"
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/lab01",                       
+    "*/lab02",
+    "*/lab03",
+    "*/lab04",                       
+    "*/lab06",
+    "*/lab07",
+    "*/models.py",
+    "*/serialize.py",
+    "*/__init__.py",
+    "*/csv_t0_xlsx.py",
+
+
+]

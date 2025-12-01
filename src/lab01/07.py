@@ -1,10 +1,10 @@
 # Задание 7
 
-chifre = input('in: ')
-word = ''
+chifre = input("in: ")
+word = ""
 first_letter_index = 0
 second_letter_index = 0
-answer = ''
+answer = ""
 for i in chifre:
     if i.upper() == i:
         word += i
@@ -15,6 +15,8 @@ for j in chifre:
         second_letter_index = chifre.index(j) + 1
         word += chifre[second_letter_index]
         break
-for k in range(first_letter_index, len(chifre), second_letter_index - first_letter_index):
+for k in range(
+    first_letter_index, len(chifre), second_letter_index - first_letter_index
+):
     answer += chifre[k]
-print(f'out: {answer}')
+print(f"out: {answer}")

@@ -1,12 +1,14 @@
 import argparse
 import sys
-sys.path.append(r'/Users/galaevka/python_labs-3/src/lab05')
+
+sys.path.append(r"/Users/galaevka/python_labs-3/src/lab05")
 from json_csv import json_to_csv, csv_to_json
 from csv_to_xlsx import csv_to_xlsx
 
 # python3 /Users/galaevka/python_labs-3/src/lab06/cli_convert.py json2csv --in /Users/galaevka/python_labs-3/data/lab06/in/lol.json --out /Users/galaevka/python_labs-3/data/lab06/out/new.csv
 # python3 /Users/galaevka/python_labs-3/src/lab06/cli_convert.py csv2json --in /Users/galaevka/python_labs-3/data/lab06/in/lol.csv --out /Users/galaevka/python_labs-3/data/lab06/out/new.json
 # python3 /Users/galaevka/python_labs-3/src/lab06/cli_convert.py csv2xlsx --in /Users/galaevka/python_labs-3/data/lab06/in/lol.csv --out /Users/galaevka/python_labs-3/data/lab06/out/new.xlsx
+
 
 def main():
     parser = argparse.ArgumentParser(description="Конвертеры данных")
@@ -35,5 +37,6 @@ def main():
     else:
         csv_to_xlsx(args.input, args.output)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
