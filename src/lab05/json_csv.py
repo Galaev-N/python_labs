@@ -10,13 +10,13 @@ from io_txt_csv import *
 def json_to_csv(json_path, csv_path):
 
     if json_path[-4:] != "json":
-        return f"TypeError! Неверный формат файла {json_path}"
+        raise ValueError(f"Неверный тип файла {json_path}")
 
     json_path = Path(json_path)
     csv_path = Path(csv_path)
 
     try:
-        with open(json_path, "r", encoding="utf-8") as json_file:
+        with open(json_path, encoding="utf-8") as json_file:
             data = json.load(json_file)
 
     except json.decoder.JSONDecodeError:
@@ -34,7 +34,7 @@ def json_to_csv(json_path, csv_path):
         rows.append(tuple(i.values()))
 
     write_csv(rows, csv_path, header)
-    return "Файл успешно создан"
+    return ""
 
 
 # print(json_to_csv('data/lab05/input/first.json', 'data/lab05/output/first.csv'))
@@ -42,7 +42,7 @@ def json_to_csv(json_path, csv_path):
 
 def csv_to_json(csv_path, json_path):
     if csv_path[-3:] != "csv":
-        return f"TypeError! Неверный формат файла {csv_path}"
+        raise ValueError(f"Неверный тип файла {csv_path}")
 
     csv_path = Path(csv_path)
     json_path = Path(json_path)
@@ -55,14 +55,22 @@ def csv_to_json(csv_path, json_path):
         raise FileNotFoundError("Осутствующий файл")
 
     if not rows:
-        return ValueError("Пустой CSV")
+        raise ValueError("Пустой CSV")
 
     if not data.fieldnames:
-        return ValueError("CSV без заголовка")
+        raise ValueError("CSV без заголовка")
 
     with open(json_path, "w", encoding="utf-8") as json_file:
         json.dump(rows, json_file, indent=2)
-    return "Файл успешно создан"
+    return ''
 
 
-# print(csv_to_json('/Users/galaevka/python_labs-3/data/lab05/input/second.csv', '/Users/galaevka/python_labs-3/data/lab05/output/second.json'))
+def main():
+    json_to_csv(
+        "data/lab05/input/first.json", "data/lab05/output/first.csv"
+    )  # относительной путь онтосительно этого файла
+    csv_to_json("data/lab05/input/people.csv", "data/lab05/output/people.json")
+
+
+if __name__ == "__main__":
+    main()

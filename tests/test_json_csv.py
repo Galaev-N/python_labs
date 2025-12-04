@@ -1,33 +1,79 @@
-from src.lab05.json_csv import *
+import pytest
+import json
+import csv
+from pathlib import Path
+from src.lab05.json_csv import json_to_csv, csv_to_json
 
-
-def test_json_to_csv_roundtrip(tmp_path: Path):
+def test_json_to_csv_success(tmp_path: Path):
+    "Положительный результат -  данные с json перенеслись в csv"
+    # tmp_path - встроенная фикстура pytest для работы с временными файлами
+    # создаем пути к временным файлам
     src = tmp_path / "people.json"
     dst = tmp_path / "people.csv"
-    data = [
-        {"name": "Alice", "age": 22},
-        {"name": "Bob", "age": 25},
-    ]
+    data = [{"name": "Alice", "age": 22}, {"name": "Bob", "age": 25}]
+
+    # записываем тестовые данные в JSON файл
     src.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     json_to_csv(str(src), str(dst))
-
     with dst.open(encoding="utf-8") as f:
-        rows = list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))  # читаем CSV как список словарей
+    # проверяем утверждения
 
     assert len(rows) == 2
     assert {"name", "age"} <= set(rows[0].keys())
 
 
-def test_csv_to_json_roundtrip(tmp_path: Path):
-    src = tmp_path / "test.csv"
-    dst = tmp_path / "test.json"
+def test_json_to_csv_wrong_file(tmp_path: Path):
+    "Проверка ошибки - неверное расширение файла"
+    with pytest.raises(ValueError):  # ожидаем, что функция выбросит ValueError
+        src = tmp_path / "people.txt"
+        dst = tmp_path / "people.csv"
+        json_to_csv(str(src), str(dst))
 
-    src.write_text("name,age\nAlice,22\nBob,25", encoding="utf-8")
+
+def test_json_to_csv_empty(tmp_path: Path):
+    "Проверка ошибки - обработка пустого JSON файла"
+    src = tmp_path / "first.json"
+    dst = tmp_path / "first.csv"
+    src.write_text(json.dumps([], ensure_ascii=False, indent=2), encoding="utf-8")
+    with pytest.raises(ValueError):
+        json_to_csv(str(src), str(dst))
+
+
+
+def test_csv_to_json_success(tmp_path: Path):
+    "Положительный результат - корректный перенос данных с csv на json"
+    src = tmp_path / "people.csv"
+    dst = tmp_path / "people.json"
+
+    # создаем корректный CSV файл с заголовком и данными
+    src.write_text("name,age,city\nAlice,22,SPB\nBob,25,Moscow")
     csv_to_json(str(src), str(dst))
+    with dst.open(encoding="utf-8") as f:
+        rows = json.load(f)
+    assert len(rows) == 2
+    assert {"name", "age", "city"} <= set(rows[0].keys())
 
-    result = json.loads(dst.read_text(encoding="utf-8"))
-    assert result == [{"name": "Alice", "age": "22"}, {"name": "Bob", "age": "25"}]
+def test_csv_to_json_wrong_file(tmp_path: Path):
+    "Проверка ошибки - неверное расширение файла"
+    with pytest.raises(ValueError):
+        src = tmp_path / "people.txt"
+        dst = tmp_path / "people.json"
+        csv_to_json(str(src), str(dst))
 
 
-#   Бро придумывай кейсы сам upd: лень мне
-#   и тд.... upd: НЕТ СИЛ МОИХ БОЛЬШЕ!
+def test_csv_to_json_none(tmp_path: Path):
+    "Проверка ошибки-  обработка отсутствующего CSV файла"
+    with pytest.raises(FileNotFoundError):
+        src = "people.csv"  # Файл, которого нет в файловой системе
+        dst = tmp_path / "people.json"
+        csv_to_json(str(src), str(dst))
+
+
+def test_csv_to_json_empty(tmp_path: Path):
+    "Проверка ошибки -  обработка пустого CSV файла"
+    src = tmp_path / "people.csv"
+    dst = tmp_path / "people.json"
+    src.write_text("", encoding="utf-8")
+    with pytest.raises(ValueError):
+        csv_to_json(str(src), str(dst))

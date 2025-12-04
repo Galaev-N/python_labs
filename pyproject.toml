@@ -3,7 +3,7 @@ requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "de_BRUH"
+name = "spam-eggs"
 version = "2025.0.0"
 
 [project.optional-dependencies]
@@ -22,16 +22,18 @@ dependencies = [
 [tool.coverage.run]
 source = ["src"]
 omit = [
-    "*/lab01",                       
-    "*/lab02",
-    "*/lab03",
-    "*/lab04",                       
-    "*/lab06",
-    "*/lab07",
+    "*/csv_xlsx.py",
+    "*/cli_convert.py",
+    "*/cli_text.py",
+    "*/analyze_text.py",
+    "*/text_stats.py",
+    "*/lab03/text.py",
+    "*/io_text_csv.py",
+    "*/text_report.py",
+    "*/tuples.py",
+    "*/stats.py",
+    "*/__init__.py",
     "*/models.py",
     "*/serialize.py",
-    "*/__init__.py",
-    "*/csv_t0_xlsx.py",
-
-
+    "*/lib/test_text.py"
 ]

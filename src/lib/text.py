@@ -1,4 +1,4 @@
-def normalize(text, casefold, yo2e):
+def normalize(text, casefold=True, yo2e=True):
     if yo2e:
         text = text.replace("ё", "е")
         text = text.replace("Ё", "Е")
@@ -6,9 +6,9 @@ def normalize(text, casefold, yo2e):
     if casefold:
         text = text.casefold()
 
-    text = text.replace("\\n", " ")
-    text = text.replace("\\t", " ")
-    text = text.replace("\\r", " ")
+    text = text.replace("\n", " ")
+    text = text.replace("\t", " ")
+    text = text.replace("\r", " ")
 
     text_lst = text.split()
 
@@ -17,8 +17,6 @@ def normalize(text, casefold, yo2e):
         normalize_text += i + " "
 
     return normalize_text.strip()
-
-#print(normalize('ПрИвЕт\\nМИр\\t', True, True))
 
 def tokenize(text):
     base = (
@@ -38,8 +36,6 @@ def tokenize(text):
         else:
             ans.append(i)
     return ans
-
-print(tokenize("emoji 😀 не слово"))
 
 def count_freq(lst):
     ans_items = []
@@ -63,4 +59,5 @@ def count_freq(lst):
 
 def top_n(dict, n=2):
     ans = sorted(list(dict.items()), key=lambda x: (-x[1], x[0]))
+
     return ans[:n]
